@@ -1,0 +1,38 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="datos_list3">
+      <field name="name">Tipo de Dato list</field>
+      <field name="model">ventas2.datos2</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+        </tree>
+      </field>
+    </record>
+
+
+       <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="datos2_form3">
+      <field name="name">Datos2 form</field>
+      <field name="model">ventas2.datos2</field>
+      <field name="arch" type="xml">
+        <form>
+         <group> 
+          <field name="name"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+
+
+
+
+  </data>
+</odoo>

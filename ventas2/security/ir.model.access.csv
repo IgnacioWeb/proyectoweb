@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ventas2_datos,ventas2.datos,model_ventas2_datos,,1,1,1,1
+access_ventas2_datos2,ventas2.datos2,model_ventas2_datos2,,1,1,1,1
