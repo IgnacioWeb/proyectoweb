@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+   <report id="report_facture"
+   string="Imprimir boleta"
+   model="ventas2.datos"
+   report_type="qweb-pdf"
+   name="ventas2.report_boleta_template"/>
+    <template id="report_boleta_template">
+        <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+        <t t-call="web.external_layout">
+            <div class="header" style="background-color:#D6DBDF;">
+            </div>
+            <div class="page">
+                <hr/>
+                    <h1 align="center">Boleta N°<span t-field="o.id"/> </h1>
+                <hr/>
+                <h2>Fecha de emisión</h2>
+                    <p><span t-field="o.date"/> </p>
+                <hr/>
+            </div>
+        </t>
+        </t>
+        </t>
+    </template>
+  </data>
+</odoo>
