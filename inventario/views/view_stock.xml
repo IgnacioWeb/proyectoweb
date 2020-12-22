@@ -1,0 +1,78 @@
+<odoo>
+  <data>
+    <record model="ir.ui.view" id="inventario.stock_list">
+      <field name="name">Stock</field>
+      <field name="model">inventario.stock</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="cantidad"/>
+          <field name="cost"/>
+          <field name="date"/>
+          <field name="categoria_productos_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+    <record id="inventario.stock_view" model="ir.ui.view">
+      <field name="name">inventario</field>
+      <field name="model">inventario.stock</field>
+      <field name="arch" type="xml">
+        <form string="inventario">
+            <group>
+                <field name="name"/>
+            </group>
+            <group>
+                <field name="cost"/>
+                <field name="date"/>
+                <field name="categoria_productos_id"/>
+           </group>
+        </form>
+      </field>
+    </record>
+
+    
+    <record model="ir.ui.view" id="inventario.categoria_productos_list">
+      <field name="name">Categorias</field>
+      <field name="model">inventario.categoria_productos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="total_productos"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+    <record model="ir.actions.act_window" id="inventario.stock_action_window">
+      <field name="name">inventario</field>
+      <field name="res_model">inventario.stock</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.server" id="inventario.stock_action_server">
+      <field name="name">inventario server</field>
+      <field name="model_id" ref="model_inventario_stock"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+    <menuitem name="inventario" id="inventario.menu_root"/>
+
+    <menuitem name="Stock" id="inventario.menu_1_list" parent="inventario.menu_root"
+              action="inventario.stock_action_window"/>
+    <menuitem name="Categoria" id="inventario.menu_categoria_productos" parent="inventario.menu_root"
+              action="inventario.categoria_productos_action_window"/>
+
+  </data>
+
+</odoo>
