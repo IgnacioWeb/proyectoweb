@@ -26,6 +26,7 @@
         'security/ir.model.access.csv',
         'views/view_datos.xml', 
         'views/boleta.xml',
+        'views/transacciones.xml',
         #'views/templates.xml',
     ],
 }
