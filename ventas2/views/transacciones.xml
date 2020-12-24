@@ -2,19 +2,19 @@
     <data>
 
         <!-- LISTA  -->
-        <record model="ir.ui.view" id="ventas2.transacciones_list">
+        <record model="ir.ui.view" id="ventas2.trans2_list">
             <field name="name">Lista de transacciones</field>
             <field name="model">ventas2.trans</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="TipoTransaccion"/>
-                    <field name="Descripcion"/>
+                    <field name="name"/>
+                    <field name="total_trans2"/>
                 </tree>
             </field>
         </record>
 
         <!-- ACCION CLICK QUE MUESTRA MENU -->
-        <record model="ir.actions.act_window" id="ventas2.transacciones_action_window">
+        <record model="ir.actions.act_window" id="ventas2.trans2_action_window">
             <field name="name">Listado de transacciones</field>
             <field name="res_model">ventas2.trans</field>
             <field name="view_mode">tree,form</field>
@@ -25,7 +25,7 @@
         <menuitem name="ventas2" id="ventas2.menu_root"/>
 
         <!-- MENU transacciones -->
-        <menuitem name="transacciones" id="ventas2.menu_transacciones" parent="ventas2.menu_root" action="ventas2.transacciones_action_window"/>
+        <menuitem name="transacciones" id="ventas2.menu_trans2" parent="ventas2.menu_root" action="ventas2.trans2_action_window"/>
 
     </data>
 </odoo>

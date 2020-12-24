@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="ventas2_list3">
+      <field name="name">ttransacciones list3</field>
+      <field name="model">ventas2.trans2</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="cost"/>
+          <field name="date"/>
+          <field name="tipo_trans2_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+       <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="ventas2_form3">
+      <field name="name">ttrans form</field>
+      <field name="model">ventas2.trans2</field>
+      <field name="arch" type="xml">
+        <form>
+         <group> 
+           <field name="name"/>
+           <field name="cost"/>
+           <field name="date"/>
+           <field name="tipo_trans2_id"/>
+          </group>
+        </form>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+  </data>
+</odoo>
