@@ -24,7 +24,11 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/view_datos.xml',
+        'views/view_datos.xml', 
+        'views/boleta.xml',
+        'views/transacciones.xml',
+        'views/ttrans.xml',
         #'views/templates.xml',
     ],
+    'application': True, 'instalable': True,
 }

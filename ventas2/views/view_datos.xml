@@ -37,7 +37,7 @@
         </record>   
 
         <record model="ir.actions.act_window" id="ventas2_action_window1">
-            <field name="name">Ventas y Datos</field>
+            <field name="name">Ventas/Facturas</field>
             <field name="res_model">ventas2.datos</field>
             <field name="view_mode">tree,form</field>
         </record>
