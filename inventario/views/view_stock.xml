@@ -1,14 +1,19 @@
 <odoo>
   <data>
     <record model="ir.ui.view" id="inventario.stock_list">
-      <field name="name">Stock</field>
+      <field name="name">Inventario</field>
       <field name="model">inventario.stock</field>
       <field name="arch" type="xml">
         <tree>
+        
           <field name="name"/>
           <field name="cantidad"/>
+          <field name="cantidad2"/>
           <field name="cost"/>
+          <field name="estado"/>
           <field name="date"/>
+          <field name="date2"/>
+          
           <field name="categoria_productos_id"/>
         </tree>
       </field>
@@ -17,7 +22,7 @@
 
 
     <record id="inventario.stock_view" model="ir.ui.view">
-      <field name="name">inventario</field>
+      <field name="name">Productos</field>
       <field name="model">inventario.stock</field>
       <field name="arch" type="xml">
         <form string="inventario">
@@ -25,6 +30,7 @@
                 <field name="name"/>
             </group>
             <group>
+                <field name="cantidad"/>
                 <field name="cost"/>
                 <field name="date"/>
                 <field name="categoria_productos_id"/>
@@ -66,12 +72,171 @@
       </field>
     </record>
 
+
+
+
+
+    <!-- formularios categoria de productos -->
+
+    <record id="inventario.stock_view" model="ir.ui.view">
+      <field name="name">Categoria de Productos</field>
+      <field name="model">inventario.categoria_productos</field>
+      <field name="arch" type="xml">
+        <form string="inventario">
+          <sheet>
+            <group>
+                <field name="name"/>
+            </group>
+            <group>
+            <field name="producto_id">
+              <tree string="Productos">
+                <field name="name"/>
+                <field name="cantidad"/>
+                <field name="cost"/>
+                <field name="date"/>
+              </tree>
+              </field>
+           </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+     <record model="ir.actions.act_window" id="inventario.categoria_productos_action_window">
+      <field name="name">Categoria productos</field>
+      <field name="res_model">inventario.categoria_productos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.server" id="inventario.stock_action_server">
+      <field name="name">inventario server</field>
+      <field name="model_id" ref="model_inventario_categoria_productos"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+
     <menuitem name="inventario" id="inventario.menu_root"/>
 
     <menuitem name="Stock" id="inventario.menu_1_list" parent="inventario.menu_root"
               action="inventario.stock_action_window"/>
     <menuitem name="Categoria" id="inventario.menu_categoria_productos" parent="inventario.menu_root"
               action="inventario.categoria_productos_action_window"/>
+
+<!-- formularios platos -->
+    <record model="ir.ui.view" id="inventario.platos_list">
+      <field name="name">Inventario</field>
+      <field name="model">inventario.platos</field>
+      <field name="arch" type="xml">
+        <tree>
+        
+          <field name="name"/>
+          <field name="descripcion"/>
+          <field name="cost"/>
+        
+          
+          <field name="categoria_platos_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+   <record id="inventario.platos_view" model="ir.ui.view">
+      <field name="name">Platos</field>
+      <field name="model">inventario.platos</field>
+      <field name="arch" type="xml">
+        <form string="Platos">
+            <group>
+                <field name="name"/>
+            </group>
+            <group>
+                <field name="descripcion"/>
+                <field name="cost"/>
+                <field name="categoria_platos_id"/>
+           </group>
+        </form>
+      </field>
+    </record>
+
+   <record model="ir.ui.view" id="inventario.categoria_platos_list">
+      <field name="name">Tipos</field>
+      <field name="model">inventario.categoria_platos</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="total_platos"/>
+        </tree>
+      </field>
+    </record>
+   
+
+
+   <record model="ir.actions.act_window" id="inventario.platos_action_window">
+      <field name="name">Inventario</field>
+      <field name="res_model">inventario.platos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    
+
+
+
+    <!-- formularios categoria de platos -->
+
+    <record id="inventario.platos_view" model="ir.ui.view">
+      <field name="name">Categoria de Platos</field>
+      <field name="model">inventario.categoria_platos</field>
+      <field name="arch" type="xml">
+        <form string="Inventario">
+          <sheet>
+            <group>
+                <field name="name"/>
+            </group>
+            <group>
+            <field name="plato_id">
+              <tree string="Tipos">
+                <field name="name"/>
+                <field name="descripcion"/>
+                <field name="cost"/>
+              </tree>
+              </field>
+           </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="inventario.categoria_platos_action_window">
+      <field name="name">Categorias de platos</field>
+      <field name="res_model">inventario.categoria_platos</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+    
+
+
+
+    
+
+    <menuitem name="Platos" id="inventario.menu_2_list" parent="inventario.menu_root"
+              action="inventario.platos_action_window"/>
+    <menuitem name="Tipos platos" id="inventario.menu_categoria_platos" parent="inventario.menu_root"
+              action="inventario.categoria_platos_action_window"/>
+
+
+
+
 
   </data>
 

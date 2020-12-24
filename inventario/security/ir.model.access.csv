@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_inventario_stock,inventario.stock,model_inventario_stock,,1,1,1,1
 access_inventario_categoria_productos,inventario.categoria_productos,model_inventario_categoria_productos,,1,1,1,1
+access_inventario_platos,inventario.platos,model_inventario_platos,,1,1,1,1
+access_inventario_categoria_platos,inventario.categoria_platos,model_inventario_categoria_platos,,1,1,1,1

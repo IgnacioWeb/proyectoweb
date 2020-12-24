@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class categoriaproductos(models.Model):
     _name = 'inventario.categoria_productos'
-    name = fields.Char(string="Caegoria",required=True)
+    name = fields.Char(string="Categoria",required=True)
     producto_id= fields.One2many(
     'inventario.stock',
     'categoria_productos_id',
@@ -21,10 +21,15 @@ class categoriaproductos(models.Model):
 class Stock(models.Model):
     _name = 'inventario.stock'
 
+    
     name = fields.Char(string="Nombre",required=True)
     cantidad= fields.Integer(string="Stock",required=True)
+    cantidad2= fields.Integer(string="Stock Critico",required=True)
     cost= fields.Float(string="Valor unitario")
-
+    estado=fields.Char(string="Estado",required=True)
     date= fields.Date("Fecha ingreso")
+    date2= fields.Date("Fecha caducidad")
+    
+
 
     categoria_productos_id= fields.Many2one('inventario.categoria_productos',string="Categoria")
