@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+
+
+    <record model="ir.ui.view" id="pedido.compra_list3">
+      <field name="name">Detalle pedido</field>
+      <field name="model">detalle.compra</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="cuantity"/>
+          <field name="info"/>
+          <field name="purchase_date"/>
+          <field name="detalle_compra_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+
+
+    <record model="ir.ui.view" id="pedido.compra_form3">
+      <field name="name">info</field>
+      <field name="model">detalle.compra</field>
+      <field name="arch" type="xml">
+        <form>
+         <group> 
+           <field name="name"/>
+          <field name="cuantity"/>
+          <field name="info"/>
+          <field name="purchase_date"/>
+          <field name="detalle_compra_id"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+  </data>
+</odoo>

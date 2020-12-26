@@ -1,0 +1,38 @@
+<odoo>  
+  <data>
+    <record model="ir.ui.view" id="compra.proveedor_list">
+      <field name="name">Proveedores</field>
+      <field name="model">proveedor.compra</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="phone"/>
+          <field name="adress"/>
+          <field name="email"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="compra.proveedor_action_window">
+      <field name="name">Informacion de Proveedores</field>
+      <field name="res_model">proveedor.compra</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.server" id="compra.proveedor_action_server">
+      <field name="name">proveedor server</field>
+      <field name="model_id" ref="model_proveedor_compra"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+
+    <menuitem name="Proveedores" id="compra.menu_root"/>
+    <menuitem name="Datos" id="compra.menu_proveedor" parent="compra.menu_root" action="compra.proveedor_action_window"/>   
+  </data>  
+</odoo> 

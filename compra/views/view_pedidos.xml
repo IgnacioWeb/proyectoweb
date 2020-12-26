@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+
+
+        <record model="ir.ui.view" id="detalle.compra_list">
+            <field name="name">Informacion de pedido</field>
+            <field name="model">pedido.compra</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="_info_compra"/>
+                </tree>
+            </field>
+        </record>
+
+   
+        <record model="ir.actions.act_window" id="compra.pedido_action_window">
+            <field name="name">Detalle Pedido</field>
+            <field name="res_model">pedido.compra</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    
+        <menuitem name="pedido" id="pedido.menu_root"/>
+        <menuitem name="detalle" id="compra.menu_pedido" parent="compra.menu_root" action="compra.pedido_action_window"/>
+
+    </data>
+</odoo>

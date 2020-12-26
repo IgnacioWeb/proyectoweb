@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_proveedor_compra,proveedor.compra,model_proveedor_compra,,1,1,1,1
+access_tipo_proveedor,tipo.proveedor,model_tipo_proveedor,,1,1,1,1
+access_pedido_compra,pedido.compra,model_pedidos_compra,,1,1,1,1
+access_detalle_compra,detalle.compra,model_detalle_compra,,1,1,1,1
